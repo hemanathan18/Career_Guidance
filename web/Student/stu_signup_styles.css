@@ -1,0 +1,84 @@
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: url("img/signbac.jpg");
+    background-repeat: no-repeat;
+    background-position: 180px;
+    background-size: contain;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    background: #92E3A9;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-container{
+    position: relative;
+    left: 30%;
+    
+}
+
+input,select{
+    margin-bottom: 10px;
+    
+    
+}
+
+input[type="submit"]{
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+
+}
+
+#logo {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    right: 1050px;
+    bottom: 440px;
+}
+
+.error-message{
+    position: absolute;
+    color:red;
+}
+
+#back{
+    position: absolute;
+    right: 400px;
+}
+
+.success-message{
+    position: absolute;
+    color:green;
+    background: white;
+    text-align: center;
+}
+

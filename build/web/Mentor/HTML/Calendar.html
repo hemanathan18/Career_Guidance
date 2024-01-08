@@ -1,0 +1,102 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Mentor Dashboard</title>
+      <link rel="stylesheet" href="style.css" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    </head>
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="#" class="logo">
+              <img src="img/CD.jpg" alt="" style="width: 40px; height: 40px;">
+              <span class="nav-item">DashBoard</span>
+            </a></li>
+            <li><a href="index.jsp">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </a></li>
+            <li><a href="profile.jsp">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">My Profile</span>
+            </a></li>
+            <li><a href="counsel.jsp">
+              <i class="fas fa-calendar"></i>
+              <span class="nav-item">Counselling Session</span>
+            </a></li>
+            <li><a href="Contact.jsp">
+              <i class="fas fa-question-circle"></i>
+              <span class="nav-item">Contact Us</span>
+            </a></li>
+            <li><a href="" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+            </div>
+            <div class="main-skills">
+              <div class="Calendarcard">
+                <h1>Mentor Availability Calendar</h1><br>
+                <form id="availabilityForm">
+                    <label for="fromDate">From Date:</label>
+                    <input type="date" id="fromDate" name="fromDate" required>
+                    <br><br>
+                    <label for="toDate">To Date:</label>
+                    <input type="date" id="toDate" name="toDate" required>
+                    <br><br>
+                    Time: <select>
+                        <option>09:00AM - 11:00AM</option>
+                        <option>11:00AM - 01:00PM</option>
+                        <option>01:00PM - 03:00PM</option>
+                        <option>03:00PM - 05:00PM</option>
+                        <option>05:00PM - 07:00PM</option>
+                    </select>
+                    <!--<label for="fromTime">From Time:</label>
+                    <input type="time" id="fromTime" name="fromTime" required>-->
+                    <!--<label for="toTime">To Time:</label>
+                    <input type="time" id="toTime" name="toTime" required>-->
+                    <br><br>
+                    <input type="submit" value="Set Availability">
+                </form>
+              </div>        
+            </div>
+        </section>
+
+      </div>
+
+      <script>
+        document.getElementById('availabilityForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const fromDateInput = document.getElementById('fromDate');
+      const toDateInput = document.getElementById('toDate');
+  
+      // Get the entered dates
+      const fromDate = new Date(fromDateInput.value);
+      const toDate = new Date(toDateInput.value);
+  
+      // Perform date validation
+      if (validateDateRange(fromDate, toDate)) {
+        alert('Availability set successfully!');
+        // Here you can add code to save the availability to a database or perform other actions
+        fromDateInput.value = ''; // Clear input after successful submission
+        toDateInput.value = ''; // Clear input after successful submission
+      } else {
+        alert('Please enter a valid date range!');
+      }
+    });
+  
+    function validateDateRange(fromDate, toDate) {
+      // Check if 'To' date is after or equal to 'From' date
+      return toDate >= fromDate;
+    }
+      </script>
+    </body>
+</html>
+</span>

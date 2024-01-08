@@ -1,0 +1,92 @@
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: url("img/mentorsignupbac2.jpg");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    background: #65BBF8;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #C8BDB3;
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signup-container{
+    position: relative;
+    left: 30%;
+    height: max-content;
+    
+}
+
+input,select{
+    margin-bottom: 10px; 
+}
+
+input[type="submit"]{
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+
+}
+
+#logo {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    right: 1080px;
+    bottom: 440px;
+}
+
+.error-message{
+    position: absolute;
+    color:red;
+}
+
+#mback{
+    position: absolute;
+    right: 400px;
+}
+
+.success-message{
+    position: absolute;
+    color:green;
+    background: white;
+    text-align: center;
+}
+
+small{
+    position: absolute;
+    color: red;
+    font-size: 80%;
+}
+
+p,pre{
+}
+

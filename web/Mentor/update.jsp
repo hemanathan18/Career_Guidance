@@ -1,0 +1,99 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Mentor Dashboard</title>
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/Mentor/style.css" />
+            <!-- Font Awesome Cdn Link -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        </head>
+        <body>
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="${pageContext.request.contextPath}/Mentor/index.jsp" class="logo">
+                                <img src="${pageContext.request.contextPath}/Mentor/img/CD.jpg" alt="" style="width: 40px; height: 40px;">
+                                <span class="nav-item">
+                                    <%
+                                        String username = "";
+                                        String userToken = (String) session.getAttribute("userToken");
+                                        String email = (String) session.getAttribute("email");
+                                        if (userToken == null || email == null) {
+                                            response.sendRedirect("mentorlogin.jsp");
+                                            return;
+                                        } else {
+                                            username = email.split("@")[0].trim();
+                                        }
+
+                                    %>
+                                    <%=username%><br>
+                                </span>
+                            </a></li>
+                        <li><a href="${pageContext.request.contextPath}/Mentor/index.jsp">
+                                <i class="fas fa-home"></i>
+                                <span class="nav-item">Home</span>
+                            </a></li>
+                        <li><a href="${pageContext.request.contextPath}/Mentor/profile.jsp">
+                                <i class="fas fa-user"></i>
+                                <span class="nav-item">My Profile</span>
+                            </a></li>
+                        <li><a href="${pageContext.request.contextPath}/Mentor/counsel.jsp">
+                                <i class="fas fa-calendar"></i>
+                                <span class="nav-item">Counselling Session</span>
+                            </a></li>
+                        <li><a href="${pageContext.request.contextPath}/Mentor/Contact.jsp">
+                                <i class="fas fa-question-circle"></i>
+                                <span class="nav-item">Contact Us</span>
+                            </a></li>
+                        <li><a href="${pageContext.request.contextPath}/MLogoutServleturl" class="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span class="nav-item">Log out</span>
+                            </a></li>
+                    </ul>
+                </nav>
+
+                <div class="main-skills">
+                    <div class="updatecard">
+                        <center>
+                            <h2>Update Profile</h2><br><br>
+                            <b>Full Name <input type="text"></b> <br><br>
+                            <b>Email     <input type="email"></b> <br><br>
+                            <b>Industry 
+                                <select>
+                                    <option>Animation & Graphics</option>
+                                    <option>Arts & Economics</option>
+                                    <option>Architecture & Civil</option>
+                                    <option>Commerce & Accounts</option>
+                                    <option>Computer Application & IT</option>
+                                    <option>Defense</option>
+                                    <option>Distribution & Logistics</option>
+                                    <option>Education and Training</option>
+                                    <option>Engineering</option>
+                                    <option>Entrepreneurship</option>
+                                    <option>Finance & Banking</option>
+                                    <option>Food and Agriculture</option>
+                                    <option>Hotel Management</option>
+                                    <option>Law & Legal studies</option>
+                                    <option>Life science</option>
+                                    <option>Management & Administration</option>
+                                    <option>Marketing & Sales</option>
+                                    <option>Maths & Statistics</option>
+                                    <option>Media & Communication</option>
+                                    <option>Medicine</option>
+                                </select> </b> <br>
+                            <b>Experience Document <input type="file" value="Choose File"> </b> <br>
+                            <b>Gender
+                                <select>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>Other</option>
+                                </select> </b> <br>
+                        </center>
+                        <button>Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </body>
+    </html>
+</span>
