@@ -14,10 +14,10 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        
 
-            HttpSession session = request.getSession(false);
+            HttpSession session2 = request.getSession(false);
 
-            if (session != null) {
-                session.invalidate();
+            if (session2 != null) {
+                session2.invalidate();
             }
 
             response.sendRedirect("Student/stu_login.jsp");

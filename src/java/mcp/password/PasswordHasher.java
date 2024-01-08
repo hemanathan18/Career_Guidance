@@ -4,6 +4,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class PasswordHasher {
+    
+//    public static void main(String [] args) throws NoSuchAlgorithmException
+//    {
+//        
+//        System.out.println(doHash("admin@123"));
+//    }
 
     public static String doHash(String password) throws NoSuchAlgorithmException {
         

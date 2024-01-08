@@ -38,7 +38,7 @@ public class AcceptServlet extends HttpServlet {
             // Send an email to the respective mentor
             sendApprovalEmail(mentorData[1]);
 
-            response.sendRedirect("dummy.jsp");
+            response.sendRedirect("Admin/mpending.jsp");
 
         } catch (SQLException e) {
             // Log the error

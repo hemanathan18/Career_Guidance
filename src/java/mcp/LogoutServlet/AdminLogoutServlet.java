@@ -15,10 +15,10 @@ public class AdminLogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session = request.getSession(false);
+        HttpSession session1 = request.getSession(false);
 
-            if (session != null) {
-                session.invalidate();
+            if (session1 != null) {
+                session1.invalidate();
             }
 
             response.sendRedirect("Admin/adminlogin.jsp");

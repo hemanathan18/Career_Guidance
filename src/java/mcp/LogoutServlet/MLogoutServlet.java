@@ -14,10 +14,10 @@ public class MLogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session = request.getSession(false);
+        HttpSession session3 = request.getSession(false);
 
-            if (session != null) {
-                session.invalidate();
+            if (session3 != null) {
+                session3.invalidate();
             }
 
             response.sendRedirect("Mentor/mentorlogin.jsp");
