@@ -36,7 +36,7 @@
             </a></li>
             <li><a href="${pageContext.request.contextPath}/Admin/manageusers.jsp">
               <i class="fas fa-user"></i>
-              <span class="nav-item">Manage Users</span>
+              <span class="nav-item">Manage</span>
             </a></li>
             <li><a href="${pageContext.request.contextPath}/Admin/managesessions.jsp" >
               <i class="fas fa-tasks"></i>
