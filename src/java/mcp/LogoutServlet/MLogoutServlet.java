@@ -15,8 +15,10 @@ public class MLogoutServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session3 = request.getSession(false);
+        String userToken = (String) session3.getAttribute("userToken");
 
-            if (session3 != null) {
+
+            if (userToken!=null) {
                 session3.invalidate();
             }
 

@@ -148,9 +148,9 @@ a:hover{
     display: block;
     height: auto;
     width: auto;
-/*    margin: 10px;
-    margin-left: 160px;
-    margin-right: 50px;*/
+    /*margin-left: 160px;*/
+/*    margin: 10px;*/
+    margin-right: 50px;
     background: #fff;
     text-align: center;
     border-radius: 20px;

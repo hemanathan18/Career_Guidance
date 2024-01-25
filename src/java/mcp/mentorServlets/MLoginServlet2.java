@@ -1,4 +1,3 @@
-
 package mcp.mentorServlets;
 
 import jakarta.servlet.RequestDispatcher;
@@ -20,30 +19,26 @@ import java.util.logging.Logger;
 import mcp.databaseConnection.DBConnection;
 import mcp.password.PasswordHasher;
 
-
 public class MLoginServlet2 extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+
             String mentorEmail = request.getParameter("mentoremail");
             String password = request.getParameter("mpassword");
-                   
-            
-            String token = UUID.randomUUID().toString();
-            HttpSession s = request.getSession();
-            s.setAttribute("email", mentorEmail);
-            s.setAttribute("userToken", token);
-            
+
+//            String token = UUID.randomUUID().toString();
+//            HttpSession s = request.getSession();
+//            s.setAttribute("email", mentorEmail);
+//            s.setAttribute("userToken", token);
             //hashing the entered password during login process
             String hashedPassword = PasswordHasher.doHash(password);
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DBConnection.getConnection();
-            
+
             String query = "select * from mentor where email=? and password=?";
 
             PreparedStatement pstmnt = con.prepareStatement(query);
@@ -51,11 +46,14 @@ public class MLoginServlet2 extends HttpServlet {
             pstmnt.setString(2, hashedPassword);
 
             ResultSet rs = pstmnt.executeQuery();
-            
+
             if (rs.next()) {
-//                response.sendRedirect("stu_dashboard.jsp");
+                String token = UUID.randomUUID().toString();
+                HttpSession s = request.getSession();
+                s.setAttribute("email", mentorEmail);
+                s.setAttribute("userToken", token);
                 response.sendRedirect("Mentor/index.jsp");
-                
+
             } else {
 
                 request.setAttribute("errorMessage", "Invalid Email or Password. Please try again.");
@@ -63,12 +61,11 @@ public class MLoginServlet2 extends HttpServlet {
                 rd.forward(request, response);
 
             }
-                     
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MLoginServlet2</title>");            
+            out.println("<title>Servlet MLoginServlet2</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MLoginServlet2 at " + request.getContextPath() + "</h1>");

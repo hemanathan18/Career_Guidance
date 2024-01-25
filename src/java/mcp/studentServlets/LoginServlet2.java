@@ -1,4 +1,3 @@
-
 package mcp.studentServlets;
 
 import jakarta.servlet.RequestDispatcher;
@@ -19,22 +18,20 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class LoginServlet2 extends HttpServlet {
 
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             String studentEmail = request.getParameter("email");
             String password = request.getParameter("password");
 
-            String token = UUID.randomUUID().toString();
-            HttpSession s = request.getSession();
-            s.setAttribute("studentEmail", studentEmail);
-            s.setAttribute("studentToken", token);
+//            String token = UUID.randomUUID().toString();
+//            HttpSession s = request.getSession();
+//            s.setAttribute("studentEmail", studentEmail);
+//            s.setAttribute("studentToken", token);
 
             //hashing the entered password during login process
             String hashedPassword = PasswordHasher.doHash(password);
@@ -51,9 +48,13 @@ public class LoginServlet2 extends HttpServlet {
             ResultSet rs = pstmnt.executeQuery();
 
             if (rs.next()) {
-//                response.sendRedirect("stu_dashboard.jsp");
-                  response.sendRedirect("Student/index.jsp");
-                
+                String token = UUID.randomUUID().toString();
+                HttpSession s = request.getSession();
+                s.setAttribute("studentEmail", studentEmail);
+                s.setAttribute("studentToken", token);
+
+                response.sendRedirect("Student/index.jsp");
+
             } else {
 
                 request.setAttribute("errorMessage", "Invalid Email or Password. Please try again.");
@@ -61,13 +62,11 @@ public class LoginServlet2 extends HttpServlet {
                 rd.forward(request, response);
 
             }
-          
-            
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet2</title>");            
+            out.println("<title>Servlet LoginServlet2</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginServlet2 at " + request.getContextPath() + "</h1>");

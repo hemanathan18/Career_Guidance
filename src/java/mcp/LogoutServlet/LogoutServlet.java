@@ -15,8 +15,10 @@ public class LogoutServlet extends HttpServlet {
        
 
             HttpSession session2 = request.getSession(false);
+            String studentToken = (String) session2.getAttribute("studentToken");
 
-            if (session2 != null) {
+
+            if (studentToken!=null) {
                 session2.invalidate();
             }
 
